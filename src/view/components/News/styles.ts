@@ -6,5 +6,5 @@ export const Container = styled.section`
     justify-content: center;
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin: 20px;
 `;

@@ -3,20 +3,28 @@ import React, { FC } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 // Pages
-import { Main, News } from '../pages';
+import { Main, News, Contacts } from '../pages';
+
+// Routes
+import { book } from '../routes/book';
 
 export const Private: FC = () => {
     return (
         <Switch>
             <Route
                 exact
-                path = '/'>
+                path = { book.ROOT }>
                 <Main />
             </Route>
             <Route
                 exact
-                path = { '/news' }>
+                path = { book.NEWS }>
                 <News />
+            </Route>
+            <Route
+                exact
+                path = { book.CONTACTS }>
+                <Contacts />
             </Route>
 
             <Redirect to = '/' />

@@ -17,7 +17,7 @@ const Main: FC = () => {
 
     return (
         <Container>
-            Main page
+
         </Container>
     );
 };

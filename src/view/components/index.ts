@@ -1,3 +1,6 @@
 export * from './ErrorBoundary';
 export * from './Article';
 export * from './News';
+export * from './AccordionItem';
+export * from './Accordion';
+export * from './Contacts';
