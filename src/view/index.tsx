@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from 'styled-components';
 
 // Containers
 import { Routes } from './routes';
-
+import { NavBar } from './containers';
 // Hooks
 import { useLocalStorage } from '../tools/hooks';
 import { useTogglersRedux } from '../bus/client/togglers';
@@ -39,6 +39,7 @@ export const App: FC = () => {
         <ThemeProvider theme = { isDefaultTheme ? defaultTheme : defaultTheme } >
             <GlobalStyles />
             <AppContainer>
+                <NavBar />
                 <Routes />
             </AppContainer>
         </ThemeProvider>
