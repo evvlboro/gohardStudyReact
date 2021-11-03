@@ -41,4 +41,7 @@ export const defaultTheme = {
         containerBg:    '#f9dcc4',
         typePrimary:    '#a56336',
     },
+    customStyles: {
+        width: 'calc(100% - 500px)',
+    },
 };

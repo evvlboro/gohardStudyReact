@@ -17,7 +17,19 @@ type Prototypes = {
 }
 
 export const Accordion: FC<Prototypes> = ({ title = 'Accordion', source }) => {
-    const [ selected, setSelected ] = useState(null);
+    const [ arrayOfSelectedId, setSelected ] = useState<Array<number>>([]);
+
+    const selectedHandler = (id: number) => {
+        if (arrayOfSelectedId.includes(id)) {
+            setSelected(
+                arrayOfSelectedId.filter((selectedId) => selectedId !== id),
+            );
+        } else {
+            setSelected(
+                [ ...arrayOfSelectedId, id ],
+            );
+        }
+    };
 
     return (
         <S.StyledAccordion>
@@ -28,10 +40,10 @@ export const Accordion: FC<Prototypes> = ({ title = 'Accordion', source }) => {
                         <AccordionItem
                             answer = { item.answer }
                             id = { index }
-                            isSelected = { selected === index }
+                            isSelected = { arrayOfSelectedId.includes(index) }
                             key = { index }
                             question = { item.question }
-                            setSelected = { setSelected }
+                            setSelected = { selectedHandler }
                         />
                     ),
                 )

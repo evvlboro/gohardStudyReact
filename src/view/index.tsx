@@ -18,6 +18,7 @@ export const AppContainer = styled.div`
     width: 100vw;
     display: flex;
     flex-direction: row;
+    background-color: ${({ theme }) => theme.second.containerBg};
 `;
 
 export const App: FC = () => {

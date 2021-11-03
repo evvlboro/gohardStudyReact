@@ -1,5 +1,5 @@
 // Core
-import 'styled-components';
+import { DefaultTheme as S } from 'styled-components';
 
 // Types
 import { defaultTheme } from '../../assets';
@@ -7,5 +7,5 @@ import { defaultTheme } from '../../assets';
 type Theme = typeof defaultTheme;
 
 declare module 'styled-components' {
-    export interface DefaultTheme extends Theme {}
+    export interface DefaultTheme extends Theme, S{}
 }

@@ -10,7 +10,7 @@ export const StyledArticle = styled.section`
 
     &:last-child {
       margin-right: 0;
-    }
+    }    
 `;
 
 export const ArticleHeader = styled.header`
@@ -20,12 +20,12 @@ export const ArticleHeader = styled.header`
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
 
-    & .buttons {
+    .buttons {
         position: relative;
         top: 160px;
         left: 30px;
   
-        & .button{
+        .button{
           display: inline-block;
           margin-right: 10px;
         }

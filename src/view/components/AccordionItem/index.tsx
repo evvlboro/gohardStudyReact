@@ -15,8 +15,6 @@ type AccordionItemTypes = {
 export const AccordionItem: FC<AccordionItemTypes> = ({ question, answer, isSelected, setSelected, id }) => {
     const handleClick = () => {
         setSelected(id);
-
-        console.log(isSelected);
     };
 
 

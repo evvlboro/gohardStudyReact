@@ -12,7 +12,7 @@ export const AccordionItem = styled.section`
 `;
 
 
-export const AccordionQuestion = styled.div<{ selected?: boolean }>`
+export const AccordionQuestion = styled.div<{ selected: boolean }>`
     position: relative;
     padding: 15px 30px;
     background: #F1F4FB;
@@ -33,13 +33,10 @@ export const AccordionQuestion = styled.div<{ selected?: boolean }>`
     }}   
 `;
 
-export const AccordionAnswer = styled.p<{ selected?: boolean }>`
+export const AccordionAnswer = styled.p`
     padding: 0 30px;
     margin: 0 0 22px;
     font-size: 16px;
     color: black;
-
-    ${({ selected }) => selected && {
-        display: 'inline-block',
-    }}
+    display: inline-block;
 `;
