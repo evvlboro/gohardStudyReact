@@ -4,3 +4,4 @@ export * from './News';
 export * from './AccordionItem';
 export * from './Accordion';
 export * from './Contacts';
+export * from './Secret';

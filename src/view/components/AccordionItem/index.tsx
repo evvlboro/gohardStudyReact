@@ -25,10 +25,10 @@ export const AccordionItem: FC<AccordionItemTypes> = ({ question, answer, isSele
             <AccordionQuestion
                 selected = { isSelected }
                 onClick = { handleClick }>
-                {question}
+                <p>{question}</p>
+                <p>{!isSelected ? '+' : '-'}</p>
             </AccordionQuestion>
-            {isSelected && <AccordionAnswer>{answer}</AccordionAnswer>
-            }
+            {isSelected && <AccordionAnswer>{answer}</AccordionAnswer>}
         </StyledAccordionItem>
     );
 };

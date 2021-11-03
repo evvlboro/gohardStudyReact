@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 // Pages
-import { Main, News, Contacts } from '../pages';
+import { Main, News, Contacts, Secret } from '../pages';
 
 // Routes
 import { book } from '../routes/book';
@@ -25,6 +25,10 @@ export const Private: FC = () => {
                 exact
                 path = { book.CONTACTS }>
                 <Contacts />
+            </Route>
+            <Route
+                path = { `${book.SECRET}/:value?` }>
+                <Secret />
             </Route>
 
             <Redirect to = '/' />

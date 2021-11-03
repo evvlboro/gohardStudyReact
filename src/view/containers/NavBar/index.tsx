@@ -31,6 +31,11 @@ export const NavBar = () => {
                             <ListItemText primary = 'Contacts' />
                         </ListItemButton>
                     </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick = { () => void push(`${book.SECRET}/I_like_cats`) }>
+                            <ListItemText primary = 'Secret' />
+                        </ListItemButton>
+                    </ListItem>
                 </List>
             </nav>
         </Box>
