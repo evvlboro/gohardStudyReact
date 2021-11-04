@@ -5,3 +5,4 @@ export * from './AccordionItem';
 export * from './Accordion';
 export * from './Contacts';
 export * from './Secret';
+export * from './StudentRegistration';

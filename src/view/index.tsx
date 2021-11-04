@@ -1,6 +1,7 @@
 // Core
 import React, { FC, useEffect, useCallback } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 
 // Containers
 import { Routes } from './routes';
@@ -10,7 +11,7 @@ import { useLocalStorage } from '../tools/hooks';
 import { useTogglersRedux } from '../bus/client/togglers';
 
 // Assets
-import { GlobalStyles, defaultTheme } from '../assets';
+import { GlobalStyles, defaultTheme, muiDefaultTheme } from '../assets';
 
 // Styles
 export const AppContainer = styled.div`
@@ -38,11 +39,13 @@ export const App: FC = () => {
 
     return (
         <ThemeProvider theme = { isDefaultTheme ? defaultTheme : defaultTheme } >
-            <GlobalStyles />
-            <AppContainer>
-                <NavBar />
-                <Routes />
-            </AppContainer>
+            <MuiThemeProvider theme = { muiDefaultTheme }>
+                <GlobalStyles />
+                <AppContainer>
+                    <NavBar />
+                    <Routes />
+                </AppContainer>
+            </MuiThemeProvider>
         </ThemeProvider>
     );
 };
