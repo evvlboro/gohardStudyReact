@@ -1,5 +1,6 @@
 // Core
 import React, { ChangeEvent, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 // Bus
 import { useStudentFormActions } from '../../../bus/client/studentForm';
@@ -14,6 +15,7 @@ import { Box, TextField, Button, Radio, RadioGroup, FormControlLabel, FormContro
 
 // Types
 import { StudentForm } from '../../../bus/client/studentForm/types';
+import { book } from '../../routes/book';
 
 // Sex
 const sexBook = {
@@ -25,27 +27,29 @@ const sexBook = {
 const initialFormState: Partial<StudentForm> = {};
 
 export const StudentRegistration = () => {
+    const { push } = useHistory();
+
     const [ form, setForm, resetForm ] = useForm(initialFormState);
 
     const { setStudentForm } = useStudentFormActions();
 
-    const setHandler = async () => {
+    const handleSubmit = async () => {
         const typedForm = form as StudentForm;
 
         console.log(typedForm);
         if (await formValidation(typedForm)) {
             setStudentForm(typedForm);
             resetForm();
+            push(book.STUDENT);
         }
     };
 
 
-    const [ sex, setSex ] = useState(sexBook.female);
+    const [ , setSex ] = useState(sexBook.female);
 
     const handleSexChange = (event: ChangeEvent<HTMLInputElement>) => {
         setSex(event.target.value);
         setForm(event);
-        console.log(event);
     };
 
     return (
@@ -129,7 +133,7 @@ export const StudentRegistration = () => {
                         alignSelf: 'end',
                     }}
                     variant = 'outlined'
-                    onClick = { () => void setHandler() }>
+                    onClick = { () => void handleSubmit() }>
                     Submit
                 </Button>
             </Box>

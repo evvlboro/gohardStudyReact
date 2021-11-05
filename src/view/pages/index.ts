@@ -8,3 +8,4 @@ export const News = lazy(() => import(/* webpackChunkName: "News" */ './News'));
 export const Contacts = lazy(() => import(/* webpackChunkName: "Contacts" */ './Contacts'));
 export const Secret = lazy(() => import(/* webpackChunkName: "Secret" */ './Secret'));
 export const StudentRegistration = lazy(() => import(/* webpackChunkName: "StudentRegistration" */ './StudentRegistration'));
+export const Profile = lazy(() => import(/* webpackChunkName: "Profile" */ './Profile'));

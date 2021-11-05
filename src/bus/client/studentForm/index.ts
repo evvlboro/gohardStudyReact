@@ -11,7 +11,6 @@ import { StudentFormState } from './types';
 export const useStudentForm = () => {
     const studentForm = useSelector((state) => state.studentForm);
 
-
     return {
         studentForm,
     };

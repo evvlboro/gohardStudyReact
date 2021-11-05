@@ -1,19 +1,19 @@
+// Core
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-
 import { useHistory } from 'react-router-dom';
 
+// Styles
+import { Box, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
+
+
+// Book
 import { book } from '../../routes/book';
 
 export const NavBar = () => {
     const { push } = useHistory();
 
     return (
-        <Box sx = {{ width: '100%', maxWidth: 200, bgcolor: 'background.paper' }}>
+        <Box sx = {{ minWidth: '25ch', width: '100%', maxWidth: 200, bgcolor: 'background.paper' }}>
             <nav aria-label = 'main mailbox folders'>
                 <List>
                     <ListItem disablePadding>
@@ -41,8 +41,14 @@ export const NavBar = () => {
                             <ListItemText primary = 'Student Registration' />
                         </ListItemButton>
                     </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick = { () => void push(book.STUDENT) }>
+                            <ListItemText primary = 'Student Profile' />
+                        </ListItemButton>
+                    </ListItem>
                 </List>
             </nav>
         </Box>
+
     );
 };

@@ -1,28 +1,30 @@
 // Core
 import React, { FC } from 'react';
 
+// Bus
+// import {} from '../../../bus/'
+
 // Components
-import { ErrorBoundary, StudentRegistration as RegComp } from '../../components';
+import { ErrorBoundary, Profile as Student } from '../../components';
 
 // Styles
 import * as S from './styles';
-
 
 // Types
 type PropTypes = {
     /* type props here */
 }
 
-const StudentRegistration: FC<PropTypes> = () => {
+const Profile: FC<PropTypes> = () => {
     return (
         <S.Container>
-            <RegComp />
+            <Student />
         </S.Container>
     );
 };
 
 export default () => (
     <ErrorBoundary>
-        <StudentRegistration />
+        <Profile />
     </ErrorBoundary>
 );
