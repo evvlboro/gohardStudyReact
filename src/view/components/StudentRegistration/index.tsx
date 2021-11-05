@@ -1,96 +1,138 @@
 // Core
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 
 // Bus
-import { useStudentForm, useStudentFormActions } from '../../../bus/client/studentForm';
+import { useStudentFormActions } from '../../../bus/client/studentForm';
 
 // Tools
 import { useForm } from '../../../tools/hooks';
 import { formValidation } from '../../../tools/validation';
 
-// Styles
+// Styles & MUI
 import * as S from './styles';
+import { Box, TextField, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
 
 // Types
 import { StudentForm } from '../../../bus/client/studentForm/types';
 
+// Sex
+const sexBook = {
+    male:   'male',
+    female: 'female',
+    other:  'other',
+};
 
 const initialFormState: Partial<StudentForm> = {};
 
 export const StudentRegistration = () => {
     const [ form, setForm, resetForm ] = useForm(initialFormState);
 
-    const { studentForm } = useStudentForm();
     const { setStudentForm } = useStudentFormActions();
 
     const setHandler = async () => {
         const typedForm = form as StudentForm;
 
+        console.log(typedForm);
         if (await formValidation(typedForm)) {
-            console.log(typedForm);
-
             setStudentForm(typedForm);
             resetForm();
         }
     };
 
+
+    const [ sex, setSex ] = useState(sexBook.female);
+
+    const handleSexChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setSex(event.target.value);
+        setForm(event);
+        console.log(event);
+    };
+
     return (
         <S.Container>
-            <form onClick = { (event) => {
-                event.preventDefault();
-            } }>
-                <input
+            <Box
+                noValidate
+                autoComplete = 'off'
+                component = 'form'
+                sx = {{
+                    '& .MuiTextField-root': { margin: 1, width: '40ch' },
+                }}>
+                <TextField
+                    required
+                    label = 'First name'
                     name = 'firstName'
-                    placeholder = 'set firstName'
                     value = { form.firstName ?? '' }
                     onChange = { setForm }
                 />
-                <input
+                <TextField
+                    required
+                    label = 'Surname'
                     name = 'surname'
-                    placeholder = 'set surname'
                     value = { form.surname ?? '' }
                     onChange = { setForm }
                 />
-                <input
+                <TextField
+                    required
+                    label = 'Age'
                     name = 'age'
-                    placeholder = 'set age'
                     type = 'number'
                     value = { form.age ?? '' }
                     onChange = { setForm }
                 />
-                <input
+                <TextField
+                    required
+                    label = 'Email'
                     name = 'email'
-                    placeholder = 'set email'
+                    type = 'email'
+
                     value = { form.email ?? '' }
                     onChange = { setForm }
                 />
-                <input
-                    name = 'sex'
-                    placeholder = 'set sex'
-                    value = { form.sex ?? '' }
-                    onChange = { setForm }
-                />
-                <input
+                <FormControl
+                    component = 'fieldset'
+                    sx = {{ m: 1.5 }}>
+                    <FormLabel component = 'legend'>Sex</FormLabel>
+                    <RadioGroup
+                        row
+                        aria-label = 'sex'
+                        name = 'sex'
+                        onChange = { handleSexChange }>
+                        <FormControlLabel
+                            control = { <Radio /> }
+                            label = 'Female'
+                            value = { sexBook.female }
+                        />
+                        <FormControlLabel
+                            control = { <Radio /> }
+                            label = 'Male'
+                            value = { sexBook.male }
+                        />
+                        <FormControlLabel
+                            control = { <Radio /> }
+                            label = 'Other'
+                            value = { sexBook.other }
+                        />
+                    </RadioGroup>
+                </FormControl>
+                <TextField
+                    required
+                    label = 'Speciality'
                     name = 'speciality'
-                    placeholder = 'set speciality'
                     value = { form.speciality ?? '' }
                     onChange = { setForm }
                 />
-
-                <button onClick = { () => void setHandler() }>Submit</button>
-            </form>
-            {
-                studentForm && (
-                    <div>
-                        <p>firstName: {studentForm.firstName}</p>
-                        <p>surname: {studentForm.surname}</p>
-                        <p>age: {studentForm.age}</p>
-                        <p>email: {studentForm.email}</p>
-                        <p>sex: {studentForm.sex}</p>
-                        <p>speciality: {studentForm.speciality}</p>
-                    </div>
-                )
-            }
+                <Button
+                    size = 'medium'
+                    sx = {{
+                        width:     '10ch',
+                        m:         1,
+                        alignSelf: 'end',
+                    }}
+                    variant = 'outlined'
+                    onClick = { () => void setHandler() }>
+                    Submit
+                </Button>
+            </Box>
         </S.Container>
     );
 };
