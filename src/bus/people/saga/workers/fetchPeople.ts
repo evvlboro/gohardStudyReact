@@ -6,10 +6,10 @@ import * as API from '../api';
 import { makeRequest } from '../../../../tools/utils';
 
 // Types
-import { PeopleState } from '../../types';
+import { People } from '../../types';
 
 export function* fetchPeople() {
-    yield makeRequest<PeopleState>({
+    yield makeRequest<People>({
         fetcher:      API.fetchPeople,
         succesAction: peopleActions.setPeople,
         togglerType:  'isPeopleFetching',

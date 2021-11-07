@@ -1,33 +1,89 @@
 // Core
-import React, { FC } from 'react';
-import { useParams } from 'react-router';
+import React from 'react';
 
-// Hooks
-import { usePeople } from '../../../bus/people';
+// Bus
+import { useFindPerson } from '../../../bus/people';
 
 // Components
-import { ErrorBoundary, Person as PersonComp } from '../../components';
+import { ErrorBoundary } from '../../components';
 
 // Styles
 import * as S from './styles';
+import { Box, TextField } from '@mui/material';
 
-// Types
-type PropTypes = {
-    /* type props here */
-}
-type ParamsType = {
-    id: string
-}
+const Person = () => {
+    const { person } = useFindPerson();
 
-const Person: FC<PropTypes> = () => {
-    const { id } = useParams<ParamsType>();
-    const { people } = usePeople();
-
-    const currentPersonData = people.filter((item) => item.name === id)[ 0 ];
+    if (person === void 0) {
+        return <div>No data</div>;
+    }
 
     return (
         <S.Container>
-            <PersonComp data = { currentPersonData }/>
+            <Box
+                component = 'div'
+                sx = {{
+                    '& .MuiTextField-root': { margin: 1, width: '40ch' },
+                    display:                'flex',
+                    flexDirection:          'column',
+                }}>
+                <TextField
+                    InputProps = {{
+                        readOnly: true,
+                    }}
+                    label = 'First name'
+                    name = 'firstName'
+                    value = { person.name }
+                />
+                <TextField
+                    InputProps = {{
+                        readOnly: true,
+                    }}
+                    label = 'Gender'
+                    name = 'gender'
+                    value = { person.gender }
+                />
+                <TextField
+                    InputProps = {{
+                        readOnly: true,
+                    }}
+                    label = 'Birth year'
+                    name = 'birthYear'
+                    value = { person.birth_year }
+                />
+                <TextField
+                    InputProps = {{
+                        readOnly: true,
+                    }}
+                    label = 'Hair color'
+                    name = 'hairColor'
+                    value = { person.hair_color }
+                />
+                <TextField
+                    InputProps = {{
+                        readOnly: true,
+                    }}
+                    label = 'Mass'
+                    name = 'mass'
+                    value = { person.mass }
+                />
+                <TextField
+                    InputProps = {{
+                        readOnly: true,
+                    }}
+                    label = 'Height'
+                    name = 'height'
+                    value = { person.height }
+                />
+                <TextField
+                    InputProps = {{
+                        readOnly: true,
+                    }}
+                    label = 'Eye color'
+                    name = 'eyeColor'
+                    value = { person.eye_color }
+                />
+            </Box>
         </S.Container>
     );
 };

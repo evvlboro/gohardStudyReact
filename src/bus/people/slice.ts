@@ -7,9 +7,9 @@ import { PeopleState } from './types';
 // Cases
 import * as cases from './cases';
 
-const initialState: PeopleState = [];
+const initialState = null;
 
-export const peopleSlice = createSlice({
+export const peopleSlice = createSlice<PeopleState, typeof cases>({
     name:     'people',
     initialState,
     reducers: {
@@ -18,4 +18,5 @@ export const peopleSlice = createSlice({
 });
 
 export const peopleActions = peopleSlice.actions;
+
 export default peopleSlice.reducer;

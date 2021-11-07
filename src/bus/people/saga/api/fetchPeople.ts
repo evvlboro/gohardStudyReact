@@ -5,7 +5,7 @@ import * as types from '../../types';
 // Tools
 import { API_URL } from '../../../../init/constants';
 
-export const fetchPeople: () => Promise<types.PeopleState> = async () => {
+export const fetchPeople: () => Promise<types.People> = async () => {
     const response = await fetch(`${API_URL}`, {
         method:  'GET',
         headers: {

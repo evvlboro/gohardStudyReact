@@ -3,6 +3,7 @@ import { CaseReducer, PayloadAction } from '@reduxjs/toolkit';
 
 // Types
 export type Person = {
+    id?: string,
     name: string,
     height: string,
     mass: string,
@@ -21,11 +22,9 @@ export type Person = {
     url: string,
 }
 
-// export type Entity = {
-//     _id: string,
-// };
-
-export type PeopleState = Array<Person>
+export type People = Array<Person>
+export type PeopleState = People | null
 
 // Contracts
-export type SetPeopleContract = CaseReducer<PeopleState, PayloadAction<PeopleState>>
+export type SetPeopleContract = CaseReducer<PeopleState, PayloadAction<People>>
+export type SetPersonContract = CaseReducer<PeopleState, PayloadAction<Person>>
