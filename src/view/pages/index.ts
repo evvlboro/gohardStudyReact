@@ -9,3 +9,5 @@ export const Contacts = lazy(() => import(/* webpackChunkName: "Contacts" */ './
 export const Secret = lazy(() => import(/* webpackChunkName: "Secret" */ './Secret'));
 export const StudentRegistration = lazy(() => import(/* webpackChunkName: "StudentRegistration" */ './StudentRegistration'));
 export const Profile = lazy(() => import(/* webpackChunkName: "Profile" */ './Profile'));
+export const People = lazy(() => import(/* webpackChunkName: "People" */ './People'));
+export const Person = lazy(() => import(/* webpackChunkName: "Person" */ './Person'));

@@ -5,6 +5,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import togglers from '../../bus/client/togglers';
 import errors from '../../bus/client/errors';
 import studentForm from '../../bus/client/studentForm/slice';
+import people from '../../bus/people/slice';
 
 // Middleware
 import { middleware, sagaMiddleware } from './middleware';
@@ -17,6 +18,7 @@ export const store = configureStore({
         togglers,
         errors,
         studentForm,
+        people,
     },
     middleware,
     devTools: process.env.NODE_ENV !== 'production',

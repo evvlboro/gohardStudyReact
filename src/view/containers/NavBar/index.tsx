@@ -14,7 +14,7 @@ export const NavBar = () => {
 
     return (
         <Box sx = {{ minWidth: '25ch', width: '100%', maxWidth: 200, bgcolor: 'background.paper' }}>
-            <nav aria-label = 'main mailbox folders'>
+            <nav>
                 <List>
                     <ListItem disablePadding>
                         <ListItemButton onClick = { () => void push(book.ROOT) }>
@@ -44,6 +44,11 @@ export const NavBar = () => {
                     <ListItem disablePadding>
                         <ListItemButton onClick = { () => void push(book.STUDENT) }>
                             <ListItemText primary = 'Student Profile' />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick = { () => void push(book.PEOPLE) }>
+                            <ListItemText primary = 'People' />
                         </ListItemButton>
                     </ListItem>
                 </List>

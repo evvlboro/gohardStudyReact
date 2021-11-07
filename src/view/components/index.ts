@@ -7,3 +7,5 @@ export * from './Contacts';
 export * from './Secret';
 export * from './StudentRegistration';
 export * from './Profile';
+export * from './People';
+export * from './Person';

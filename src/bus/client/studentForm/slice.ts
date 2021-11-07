@@ -1,19 +1,19 @@
 // Core
-import { createSlice, SliceCaseReducers } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 // Types
 import { StudentFormState } from './types';
 
-// Cases
-import * as cases from './cases';
+// Reducers
+import * as reducers from './cases';
 
 const initialState = null;
 
-export const studentFormSlice = createSlice<StudentFormState, SliceCaseReducers<StudentFormState>>({
+export const studentFormSlice = createSlice<StudentFormState, typeof reducers>({
     name:     'studentForm',
     initialState,
     reducers: {
-        ...cases,
+        ...reducers,
     },
 });
 
